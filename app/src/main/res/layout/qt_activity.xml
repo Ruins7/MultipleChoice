@@ -1,0 +1,166 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/background_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/qtimetitle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="Time(sec):"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/qtime"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="10"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="380dp"
+        android:background="@color/background_color">
+
+        <EditText
+        android:id="@+id/questioncontent"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="50dp"
+        android:background="@color/background_color"
+        android:gravity="left"
+        android:text="1312312"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+        <EditText
+            android:id="@+id/answer1"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/background_color"
+            android:gravity="center"
+            android:text="1312312"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <EditText
+            android:id="@+id/answer2"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="170dp"
+            android:background="@color/background_color"
+            android:gravity="center"
+            android:text="1312312"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <EditText
+            android:id="@+id/answer3"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="240dp"
+            android:background="@color/background_color"
+            android:gravity="center"
+            android:text="1312312"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <EditText
+            android:id="@+id/answer4"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="310dp"
+            android:background="@color/background_color"
+            android:gravity="center"
+            android:text="1312312"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/background_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/qtusernametitle"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="Name:"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/qtusername"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="Jasmine"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/qthistroy"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="6/10"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

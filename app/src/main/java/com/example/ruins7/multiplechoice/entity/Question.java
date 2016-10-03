@@ -7,10 +7,10 @@ package com.example.ruins7.multiplechoice.entity;
 public class Question {
     private int qid;
     private String questionContent;
-    private String correntAnswer;
-    private String incorrentAnswer1;
-    private String incorrentAnswer2;
-    private String incorrentAnswer3;
+    private String correctAnswer;
+    private String incorrectAnswer1;
+    private String incorrectAnswer2;
+    private String incorrectAnswer3;
     private int time;
 
     public int getQid() {
@@ -30,35 +30,35 @@ public class Question {
     }
 
     public String getCorrentAnswer() {
-        return correntAnswer;
+        return correctAnswer;
     }
 
     public void setCorrentAnswer(String correntAnswer) {
-        this.correntAnswer = correntAnswer;
+        this.correctAnswer = correntAnswer;
     }
 
-    public String getIncorrentAnswer1() {
-        return incorrentAnswer1;
+    public String getIncorrectAnswer1() {
+        return incorrectAnswer1;
     }
 
-    public void setIncorrentAnswer1(String incorrentAnswer1) {
-        this.incorrentAnswer1 = incorrentAnswer1;
+    public void setIncorrectAnswer1(String incorrectAnswer1) {
+        this.incorrectAnswer1 = incorrectAnswer1;
     }
 
-    public String getIncorrentAnswer2() {
-        return incorrentAnswer2;
+    public String getIncorrectAnswer2() {
+        return incorrectAnswer2;
     }
 
-    public void setIncorrentAnswer2(String incorrentAnswer2) {
-        this.incorrentAnswer2 = incorrentAnswer2;
+    public void setIncorrectAnswer2(String incorrectAnswer2) {
+        this.incorrectAnswer2 = incorrectAnswer2;
     }
 
-    public String getIncorrentAnswer3() {
-        return incorrentAnswer3;
+    public String getIncorrectAnswer3() {
+        return incorrectAnswer3;
     }
 
-    public void setIncorrentAnswer3(String incorrentAnswer3) {
-        this.incorrentAnswer3 = incorrentAnswer3;
+    public void setIncorrectAnswer3(String incorrectAnswer3) {
+        this.incorrectAnswer3 = incorrectAnswer3;
     }
 
     public int getTime() {

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:fitsSystemWindows="true">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/qttitle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/background_color"
+            android:clickable="false"
+            android:text="Add User"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+
+        <EditText
+            android:id="@+id/qtnametitle"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:background="@color/background_color"
+            android:clickable="false"
+            android:gravity="left"
+            android:text="Username:"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@android:color/black"
+            android:textSize="23dp" />
+
+        <EditText
+            android:id="@+id/qtname"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/qtnametitle"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/background_color"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="left"
+            android:hint="Input username..."
+            android:maxLength="20"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textCursorDrawable="@android:color/black"
+            android:textSize="20dp" />
+
+
+        <EditText
+            android:id="@+id/qtpsswordtitle"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="180dp"
+            android:background="@color/background_color"
+            android:clickable="false"
+            android:gravity="left"
+            android:text="password:"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@android:color/black"
+            android:textSize="23dp" />
+
+        <EditText
+            android:id="@+id/qtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/qtpsswordtitle"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/background_color"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="left"
+            android:hint="Input password..."
+            android:maxLength="20"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textCursorDrawable="@android:color/black"
+            android:textSize="20dp" />
+
+
+        <EditText
+            android:id="@+id/qttypetitle"
+            android:layout_width="220dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="300dp"
+            android:background="@color/background_color"
+            android:clickable="false"
+            android:gravity="left"
+            android:text="User type:"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@android:color/black"
+            android:textSize="23dp" />
+
+        <Spinner
+            android:id="@+id/usertypespinner"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="350dp"
+            android:background="@android:color/darker_gray"
+            android:entries="@array/usertypes"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/submitqt"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="430dp"
+            android:background="@color/input_background"
+            android:gravity="center"
+            android:text="submit"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/gotoaddquestion"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="530dp"
+            android:background="@color/input_background"
+            android:gravity="center"
+            android:text="add question"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/logoff"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="630dp"
+            android:background="@color/input_background"
+            android:gravity="center"
+            android:text="Log off"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+</ScrollView>

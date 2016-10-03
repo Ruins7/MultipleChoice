@@ -27,10 +27,11 @@ public class QuizDB {
     public ArrayList<User> selectUser(User user) {
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
         ArrayList<User> userlist = new ArrayList<User>();
-        Cursor cursor = db.rawQuery("select * from user", null);
+        Cursor cursor = db.rawQuery("select * from user where username = ? and password = ?", new String[]{user.getUsername(), user.getPassword()});
         while (cursor.moveToNext()) {
             user.setUid(cursor.getInt(0));
-            user.setUsername(cursor.getString(1));
+            user.setUsername(cursor.getString(2));
+            user.setPassword(cursor.getString(1));
             user.setUtype(cursor.getInt(3));
             userlist.add(user);
         }
@@ -39,18 +40,19 @@ public class QuizDB {
         return userlist;
     }
 
-    //查询question
-    public ArrayList<Question> selectQuestion(Question question) {
+    //分页查询question
+    public ArrayList<Question> selectQuestion(int totalNumForOnePage, int fromItemNum) {
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
         ArrayList<Question> questionlist = new ArrayList<Question>();
-        Cursor cursor = db.rawQuery("select * from question", null);
+        Cursor cursor = db.rawQuery("select * from question order by qid limit "+ totalNumForOnePage +" offset " + fromItemNum, null);
         while (cursor.moveToNext()) {
+            Question question = new Question();
             question.setQid(cursor.getInt(0));
             question.setQuestionContent(cursor.getString(1));
             question.setCorrentAnswer(cursor.getString(2));
-            question.setIncorrentAnswer1(cursor.getString(3));
-            question.setIncorrentAnswer2(cursor.getString(4));
-            question.setIncorrentAnswer3(cursor.getString(5));
+            question.setIncorrectAnswer1(cursor.getString(3));
+            question.setIncorrectAnswer2(cursor.getString(4));
+            question.setIncorrectAnswer3(cursor.getString(5));
             question.setTime(cursor.getInt(6));
             questionlist.add(question);
         }
@@ -60,17 +62,18 @@ public class QuizDB {
     }
 
     //查询history
-    public ArrayList<History> selectHistory(History history) {
+    public ArrayList<History> selectHistory() {
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
         ArrayList<History> historylist = new ArrayList<History>();
         Cursor cursor = db.rawQuery("select * from history", null);
         while (cursor.moveToNext()) {
+            History history = new History();
             history.setHid(cursor.getInt(0));
             history.setUid(cursor.getInt(1));
             history.setQid(cursor.getInt(2));
             history.setGavenAnswer(cursor.getString(3));
             history.setResult(cursor.getLong(4));
-            history.setTime(cursor.getInt(5));
+            history.setSpendTime(cursor.getInt(5));
             historylist.add(history);
         }
         cursor.close();
@@ -88,7 +91,6 @@ public class QuizDB {
         cv.put("username", user.getUsername());
         cv.put("utype", user.getUtype());
 
-
         long row = db.insert("user", null, cv);
         return row;
     }
@@ -99,13 +101,12 @@ public class QuizDB {
         /* ContentValues */
         ContentValues cv = new ContentValues();
 
-        cv.put("questionContent", question.getQuestionContent());
-        cv.put("correntAnswer", question.getCorrentAnswer());
-        cv.put("incorrentAnswer1", question.getIncorrentAnswer1());
-        cv.put("incorrentAnswer2", question.getIncorrentAnswer2());
-        cv.put("incorrentAnswer3", question.getIncorrentAnswer3());
+        cv.put("questioncontent", question.getQuestionContent());
+        cv.put("correctanswer", question.getCorrentAnswer());
+        cv.put("incorrect_answer1", question.getIncorrectAnswer1());
+        cv.put("incorrect_answer2", question.getIncorrectAnswer2());
+        cv.put("incorrect_answer3", question.getIncorrectAnswer3());
         cv.put("time", question.getTime());
-
 
         long row = db.insert("question", null, cv);
         return row;
@@ -119,15 +120,13 @@ public class QuizDB {
 
         cv.put("uid", history.getUid());
         cv.put("qid", history.getQid());
-        cv.put("gavenAnswer", history.getGavenAnswer());
+        cv.put("gaven_answer", history.getGavenAnswer());
         cv.put("result", history.getResult());
-        cv.put("time", history.getTime());
-
+        cv.put("spend_time", history.getSpendTime());
 
         long row = db.insert("history", null, cv);
         return row;
     }
-
 
 //    //删除操作
 //    public void delete(User user)

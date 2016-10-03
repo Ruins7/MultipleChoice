@@ -42,14 +42,13 @@ public class DBOpenHelper extends SQLiteOpenHelper{
                 "\t`utype`\tINTEGER NOT NULL\n" +
                 ");";
         String question = "CREATE TABLE `question` (\n" +
-                "\t`qid`\tINTEGER NOT NULL UNIQUE,\n" +
+                "\t`qid`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
                 "\t`questioncontent`\tTEXT NOT NULL,\n" +
                 "\t`correctanswer`\tTEXT NOT NULL,\n" +
                 "\t`incorrect_answer1`\tTEXT NOT NULL,\n" +
                 "\t`incorrect_answer2`\tTEXT NOT NULL,\n" +
                 "\t`incorrect_answer3`\tTEXT NOT NULL,\n" +
-                "\t`time`\tINTEGER NOT NULL,\n" +
-                "\tPRIMARY KEY(`qid`)\n" +
+                "\t`time`\tINTEGER NOT NULL\n" +
                 ");";
         String history = "CREATE TABLE `history` (\n" +
                 "\t`hid`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +

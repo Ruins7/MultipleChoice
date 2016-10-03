@@ -11,7 +11,7 @@ public class History {
     private int qid;
     private String gavenAnswer;
     private Long result;
-    private int time;
+    private int spendTime;
 
     public int getHid() {
         return hid;
@@ -53,11 +53,11 @@ public class History {
         this.result = result;
     }
 
-    public int getTime() {
-        return time;
+    public int getSpendTime() {
+        return spendTime;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setSpendTime(int spendTime) {
+        this.spendTime = spendTime;
     }
 }
