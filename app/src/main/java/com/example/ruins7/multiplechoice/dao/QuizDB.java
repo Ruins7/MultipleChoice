@@ -19,7 +19,7 @@ public class QuizDB {
 
     private DBOpenHelper dbOpenHelper;
 
-    public QuizDB(Context context){
+    public QuizDB(Context context) {
         dbOpenHelper = new DBOpenHelper(context);
     }
 
@@ -40,13 +40,30 @@ public class QuizDB {
         return userlist;
     }
 
-    //分页查询question
-    public ArrayList<Question> selectQuestion(int totalNumForOnePage, int fromItemNum) {
+    //查询用户 by username
+    public ArrayList<User> selectUser(String username) {
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
-        ArrayList<Question> questionlist = new ArrayList<Question>();
-        Cursor cursor = db.rawQuery("select * from question order by qid limit "+ totalNumForOnePage +" offset " + fromItemNum, null);
+        ArrayList<User> userlist = new ArrayList<User>();
+        Cursor cursor = db.rawQuery("select * from user where username = ? order by uid asc", new String[]{username});
         while (cursor.moveToNext()) {
-            Question question = new Question();
+            User user = new User();
+            user.setUid(cursor.getInt(0));
+            user.setUsername(cursor.getString(2));
+            user.setPassword(cursor.getString(1));
+            user.setUtype(cursor.getInt(3));
+            userlist.add(user);
+        }
+        cursor.close();
+        db.close();
+        return userlist;
+    }
+
+    //分页查询question
+    public Question selectQuestion() {
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+        Question question = new Question();
+        Cursor cursor = db.rawQuery("select * from question order by RANDOM () limit 1", null);
+        while (cursor.moveToNext()) {
             question.setQid(cursor.getInt(0));
             question.setQuestionContent(cursor.getString(1));
             question.setCorrentAnswer(cursor.getString(2));
@@ -54,25 +71,44 @@ public class QuizDB {
             question.setIncorrectAnswer2(cursor.getString(4));
             question.setIncorrectAnswer3(cursor.getString(5));
             question.setTime(cursor.getInt(6));
-            questionlist.add(question);
         }
         cursor.close();
         db.close();
-        return questionlist;
+        return question;
     }
 
     //查询history
-    public ArrayList<History> selectHistory() {
+    public ArrayList<History> selectHistory(int uid) {
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
         ArrayList<History> historylist = new ArrayList<History>();
-        Cursor cursor = db.rawQuery("select * from history", null);
+        Cursor cursor = db.rawQuery("select * from history where uid = ?", new String[]{String.valueOf(uid)});
         while (cursor.moveToNext()) {
             History history = new History();
             history.setHid(cursor.getInt(0));
             history.setUid(cursor.getInt(1));
             history.setQid(cursor.getInt(2));
             history.setGavenAnswer(cursor.getString(3));
-            history.setResult(cursor.getLong(4));
+            history.setResult(cursor.getString(4));
+            history.setSpendTime(cursor.getInt(5));
+            historylist.add(history);
+        }
+        cursor.close();
+        db.close();
+        return historylist;
+    }
+
+    //查询用户答对的题的history
+    public ArrayList<History> selectCorrectHistory(int uid) {
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+        ArrayList<History> historylist = new ArrayList<History>();
+        Cursor cursor = db.rawQuery("select * from history where result = 'correct' and uid = ?", new String[]{String.valueOf(uid)});
+        while (cursor.moveToNext()) {
+            History history = new History();
+            history.setHid(cursor.getInt(0));
+            history.setUid(cursor.getInt(1));
+            history.setQid(cursor.getInt(2));
+            history.setGavenAnswer(cursor.getString(3));
+            history.setResult(cursor.getString(4));
             history.setSpendTime(cursor.getInt(5));
             historylist.add(history);
         }
@@ -128,25 +164,11 @@ public class QuizDB {
         return row;
     }
 
-//    //删除操作
-//    public void delete(User user)
-//    {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        String where = "uid" + " = ?";
-//        String[] whereValue ={ Integer.toString(user.getUid()) };
-//        db.delete("user", where, whereValue);
-//    }
-
-//    //修改question操作
-//    public void update(Question question)
-//    {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        String where = "question" + " = ?";
-//        String[] whereValue = { Integer.toString(question.getQid()) };
-//
-//        ContentValues cv = new ContentValues();
-//        cv.put("question", bookname);
-//        cv.put("", author);
-//        db.update(TABLE_NAME, cv, where, whereValue);
-//    }
+    //删除histroy
+    public int deleteHistory(int uid)
+    {
+        SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
+        int result = db.delete("history", "uid = ?", new String[]{String.valueOf(uid)});
+        return result;
+    }
 }

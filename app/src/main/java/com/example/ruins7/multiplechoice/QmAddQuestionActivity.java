@@ -40,6 +40,7 @@ public class QmAddQuestionActivity extends AppCompatActivity {
         Logoff logofffunction = new Logoff();
         GotoAddUser gotoaddUser = new GotoAddUser();
         AddQuestion addQuestion = new AddQuestion();
+        DelHistory delHistory = new DelHistory();
 
         //不可点击titles
         EditText questiontitle = (EditText) findViewById(R.id.questiontitle);
@@ -60,6 +61,7 @@ public class QmAddQuestionActivity extends AppCompatActivity {
         Button gotoadduser = (Button) findViewById(R.id.gotoadduser);
         Button logoff = (Button) findViewById(R.id.logoff);
         Button submitquestion = (Button) findViewById(R.id.submitquestion);
+        Button delhistory = (Button) findViewById(R.id.delhistory);
 
         //设置titles不可点击
         questiontitle.setEnabled(false);
@@ -72,9 +74,10 @@ public class QmAddQuestionActivity extends AppCompatActivity {
         logoff.setOnClickListener(logofffunction);
         gotoadduser.setOnClickListener(gotoaddUser);
         submitquestion.setOnClickListener(addQuestion);
+        delhistory.setOnClickListener(delHistory);
 
         //冒泡提示登录成功
-        Toast.makeText(QmAddQuestionActivity.this, "Login Successfully", Toast.LENGTH_LONG).show();
+        Toast.makeText(QmAddQuestionActivity.this, "Welcome back, Quiz Master.", Toast.LENGTH_LONG).show();
 
     }
 
@@ -85,6 +88,17 @@ public class QmAddQuestionActivity extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent_ivtime = new Intent();
             intent_ivtime.setClass(QmAddQuestionActivity.this, MainActivity.class);
+            QmAddQuestionActivity.this.startActivity(intent_ivtime);
+        }
+    }
+
+    //deletehistory
+    class DelHistory implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Intent intent_ivtime = new Intent();
+            intent_ivtime.setClass(QmAddQuestionActivity.this, QmDelHistoryActivity.class);
             QmAddQuestionActivity.this.startActivity(intent_ivtime);
         }
     }

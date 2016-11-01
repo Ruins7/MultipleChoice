@@ -1,20 +1,9 @@
 package com.example.ruins7.multiplechoice.dao;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import com.example.ruins7.multiplechoice.entity.History;
-import com.example.ruins7.multiplechoice.entity.Question;
-import com.example.ruins7.multiplechoice.entity.User;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
 
 /**
  * Created by ruins7 on 2016-09-25.
@@ -54,8 +43,8 @@ public class DBOpenHelper extends SQLiteOpenHelper{
                 "\t`hid`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
                 "\t`uid`\tINTEGER NOT NULL,\n" +
                 "\t`qid`\tINTEGER NOT NULL,\n" +
-                "\t`gaven_answer`\tTEXT NOT NULL,\n" +
-                "\t`result`\tINTEGER NOT NULL,\n" +
+                "\t`gaven_answer`\tTEXT ,\n" +
+                "\t`result`\tTEXT NOT NULL,\n" +
                 "\t`spend_time`\tINTEGER NOT NULL\n" +
                 ");";
         //执行创建数据库操作

@@ -10,7 +10,7 @@ public class History {
     private int uid;
     private int qid;
     private String gavenAnswer;
-    private Long result;
+    private String result;
     private int spendTime;
 
     public int getHid() {
@@ -45,11 +45,11 @@ public class History {
         this.gavenAnswer = gavenAnswer;
     }
 
-    public Long getResult() {
+    public String getResult() {
         return result;
     }
 
-    public void setResult(Long result) {
+    public void setResult(String result) {
         this.result = result;
     }
 

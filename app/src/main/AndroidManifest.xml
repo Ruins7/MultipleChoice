@@ -20,6 +20,7 @@
         <activity android:name=".QmAddQuestionActivity"></activity>
         <activity android:name=".QmAddUserActivity"></activity>
         <activity android:name=".QuizTakerActivity"></activity>
+        <activity android:name=".QmDelHistoryActivity"></activity>
     </application>
     <uses-sdk
         android:minSdkVersion="10"

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             username = usernametext.getText().toString();
             password = passwordtext.getText().toString();
             if(username.trim().equals("") || password.trim().equals("")){
-                Toast.makeText(MainActivity.this, "Username or Password can not be empty", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Username or Password can not be empty", Toast.LENGTH_SHORT).show();
             }else{
                 User loginUser = new User();
                 loginUser.setUsername(username);

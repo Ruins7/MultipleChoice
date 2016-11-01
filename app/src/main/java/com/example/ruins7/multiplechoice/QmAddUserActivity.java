@@ -116,7 +116,7 @@ public class QmAddUserActivity extends AppCompatActivity {
             qtnamestr = qtname.getText().toString();
             qtpasswordstr= qtpassword.getText().toString();
             if(qtnamestr.trim().equals("") || qtpasswordstr.trim().equals("")){
-                Toast.makeText(QmAddUserActivity.this, "Please fill the required information correctly", Toast.LENGTH_LONG).show();
+                Toast.makeText(QmAddUserActivity.this, "Please fill the required information correctly", Toast.LENGTH_SHORT).show();
             }else{
                 User newUser = new User();
                 newUser.setUsername(qtnamestr);
@@ -125,11 +125,11 @@ public class QmAddUserActivity extends AppCompatActivity {
                 quizDB = new QuizDB(QmAddUserActivity.this);
                 Long result = quizDB.insertUser(newUser);
                 if(result > 0){
-                    Toast.makeText(QmAddUserActivity.this, "Add User Successfully, add another one", Toast.LENGTH_LONG).show();
+                    Toast.makeText(QmAddUserActivity.this, "Add User Successfully, add another one", Toast.LENGTH_SHORT).show();
                     qtname.setText("");
                     qtpassword.setText("");
                 }else{
-                    Toast.makeText(QmAddUserActivity.this, "Failed to Add User", Toast.LENGTH_LONG).show();
+                    Toast.makeText(QmAddUserActivity.this, "Failed to Add User", Toast.LENGTH_SHORT).show();
                 }
             }
         }
