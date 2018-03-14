@@ -37,6 +37,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    // 001 is quizMaster; 002 is quizTaker
     public int getUtype() {
         return utype;
     }

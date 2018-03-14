@@ -47,10 +47,20 @@ public class DBOpenHelper extends SQLiteOpenHelper{
                 "\t`result`\tTEXT NOT NULL,\n" +
                 "\t`spend_time`\tINTEGER NOT NULL\n" +
                 ");";
+
+        String addInitQuizMaster = "INSERT INTO 'user' ('uid', 'password', 'username', 'utype')\n" +
+                "VALUES (001, '123456', 'freddy', 001);";
+
+        String addInitQuizTaker = "INSERT INTO 'user' ('uid', 'password', 'username', 'utype')\n" +
+                "VALUES (002, '123456', 'jasmine', 002);";
+
         //执行创建数据库操作
         db.execSQL(user);
         db.execSQL(question);
         db.execSQL(history);
+
+        db.execSQL(addInitQuizMaster);
+        db.execSQL(addInitQuizTaker);
     }
 
     @Override
@@ -58,7 +68,4 @@ public class DBOpenHelper extends SQLiteOpenHelper{
         //创建成功，日志输出提示
         Log.i("tag", "update a Database");
     }
-
-
-
 }

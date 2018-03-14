@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 系统首次运行时自动初始化DB
+
         UserLogin userLogin = new UserLogin();
 
         appname = (EditText) findViewById(R.id.appname);
